@@ -17,10 +17,15 @@ const styles = StyleSheet.create({
 
 
 export default class ChatScreen extends Component {
+  static navigationOptions = {
+    title: 'Chat',
+    header: null,
+  };
+
   state = {
     messages: [],
   };
-  
+
   renderCustomView = (props) => {
     if (props.currentMessage.location) {
       return (
@@ -69,13 +74,13 @@ export default class ChatScreen extends Component {
           _id: 2,
           name: 'React Native',
         },
-        image: 'http://www.pokerpost.fr/wp-content/uploads/2017/12/iStock-604371970-1.jpg',
+        image: 'https://tixinn-live-2017.s3.amazonaws.com/uploads/event/event_thumbnail/661/band.jpg',
         sent: true,
         received: true,
       },
       {
         _id: Math.round(Math.random() * 1000000),
-        text: 'Send me a picture!',
+        text: '讓我看看現場!',
         createdAt: new Date(),
         user: {
           _id: 1,
@@ -93,13 +98,13 @@ export default class ChatScreen extends Component {
         sent: true,
         received: true,
         location: {
-          latitude: 48.864601,
-          longitude: 2.398704
+          latitude: 25.074812726373285,
+          longitude: 121.53047740459442
         },
       },
       {
         _id: Math.round(Math.random() * 1000000),
-        text: 'Where are you?',
+        text: '你在哪?',
         createdAt: new Date(),
         user: {
           _id: 1,
@@ -108,7 +113,7 @@ export default class ChatScreen extends Component {
       },
       {
         _id: Math.round(Math.random() * 1000000),
-        text: 'Yes, and I use Gifted Chat!',
+        text: '我已經到了！',
         createdAt: new Date(),
         user: {
           _id: 2,
@@ -119,7 +124,7 @@ export default class ChatScreen extends Component {
       },
       {
         _id: Math.round(Math.random() * 1000000),
-        text: 'Are you building a chat app?',
+        text: '你到了嗎?',
         createdAt: new Date(),
         user: {
           _id: 1,
@@ -128,7 +133,7 @@ export default class ChatScreen extends Component {
       },
       {
         _id: Math.round(Math.random() * 1000000),
-        text: "You are officially rocking GiftedChat.",
+        text: "開始聊天！！！！！",
         createdAt: new Date(),
         system: true,
       },

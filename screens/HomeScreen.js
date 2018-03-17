@@ -15,6 +15,7 @@ import { MonoText } from '../components/StyledText';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
+    title: 'Info',
     header: null,
   };
   state = {
@@ -66,11 +67,7 @@ export default class HomeScreen extends React.Component {
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.welcomeContainer}>
             <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/robot-dev.png')
-                  : require('../assets/images/robot-prod.png')
-              }
+              source={{uri: 'https://aestw.files.wordpress.com/2016/01/profile-logo.png?w=192'}}
               style={styles.welcomeImage}
             />
           </View>

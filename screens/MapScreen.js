@@ -5,6 +5,7 @@ import { Alert } from 'react-native';
 export default class Map extends React.Component {
   static navigationOptions = {
     title: 'Map',
+    header: null,
     markerPolygon: [],
   };
 
