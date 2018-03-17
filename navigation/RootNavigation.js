@@ -1,7 +1,9 @@
 import { Notifications } from 'expo';
 import React from 'react';
 import { StackNavigator } from 'react-navigation';
-
+import {
+  Alert,
+} from 'react-native';
 import MainTabNavigator from './MainTabNavigator';
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 
@@ -21,6 +23,7 @@ const RootStackNavigator = StackNavigator(
 );
 
 export default class RootNavigator extends React.Component {
+
   componentDidMount() {
     this._notificationSubscription = this._registerForPushNotifications();
   }
@@ -30,7 +33,9 @@ export default class RootNavigator extends React.Component {
   }
 
   render() {
-    return <RootStackNavigator />;
+    return (
+      <RootStackNavigator />
+    );
   }
 
   _registerForPushNotifications() {
@@ -46,5 +51,11 @@ export default class RootNavigator extends React.Component {
 
   _handleNotification = ({ origin, data }) => {
     console.log(`Push notification ${origin} with data: ${JSON.stringify(data)}`);
+    Alert.alert(
+      data.title,
+      data.content,
+      { cancelable: false }
+    );
+    
   };
 }
