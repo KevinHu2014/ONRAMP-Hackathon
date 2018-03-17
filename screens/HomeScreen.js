@@ -16,6 +16,28 @@ export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
+  state = {
+    content: [],
+  };
+  componentWillMount() {
+    this.setState({ data:  [
+      {
+        id: '001',
+        title: '1111',
+        content: 'dfdsfsdfdsf',
+      },
+      {
+        id: '002',
+        title: '1111',
+        content: 'dfdsfsdfdsf',
+      },
+      {
+        id: '003',
+        title: '1111',
+        content: 'dfdsfsdfdsf',
+      }
+    ]});
+  }
 
   render() {
     return (
@@ -31,36 +53,22 @@ export default class HomeScreen extends React.Component {
               style={styles.welcomeImage}
             />
           </View>
-
-          <View style={styles.getStartedContainer}>
-            {this._maybeRenderDevelopmentModeWarning()}
-
-            <Text style={styles.getStartedText}>Get started by opening</Text>
-
-            <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-              <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
-            </View>
-
-            <Text style={styles.getStartedText}>
-              Change this text and your app will automatically reload.
-            </Text>
-          </View>
-
-          <View style={styles.helpContainer}>
-            <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
-              <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
-            </TouchableOpacity>
-          </View>
+          {this.renderContent()}
         </ScrollView>
-
-        <View style={styles.tabBarInfoContainer}>
-          <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
-
-          <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-            <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
-          </View>
-        </View>
       </View>
+    );
+  }
+
+  renderContent() {
+    return this.state.data.map(
+      data => (
+        <View key={data.id} style={styles.helpContainer}>
+              <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
+                <Text style={styles.helpLinkText}>{data.title}</Text>
+                <Text>{data.content}</Text>
+              </TouchableOpacity>
+        </View>
+      )
     );
   }
 
